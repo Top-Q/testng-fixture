@@ -5,7 +5,26 @@
 	<groupId>il.co.topq.testng</groupId>
 	<artifactId>testng-fixture</artifactId>
 	<version>1.0.0</version>
+	<organization>
+		<name>Top-Q</name>
+	</organization>
+	<developers>
+		<developer>
+			<name>Itai Agmon</name>
+			<email>itai.agmon@top-q.co.il</email>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<topq.repository.rootUrl>http://maven.top-q.co.il</topq.repository.rootUrl>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
