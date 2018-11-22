@@ -19,6 +19,13 @@ public class TestsWithFixtureExamples extends AbstractTestCase {
 	public void test01_01() {
 
 	}
+	
+	
+	@Test
+	@WithFixture(value = il.co.topq.fixture.fixtures.FixtureExample.class, params = {"firstValue","secondValue"})
+	public void myAwesomeTest() {
+		// This is my test
+	}
 
 	/**
 	 * Can add parameters to fixtures

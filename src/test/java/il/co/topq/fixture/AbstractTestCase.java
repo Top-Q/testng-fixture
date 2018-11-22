@@ -6,10 +6,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
 import il.co.topq.fixture.FixtureManager;
-import il.co.topq.fixture.FixtureMethodInterceptor;
+import il.co.topq.fixture.FixtureListener;
 import il.co.topq.fixture.FixtureManager.FixtureRunResult;
 
-@Listeners(FixtureMethodInterceptor.class)
+@Listeners(FixtureListener.class)
 public class AbstractTestCase {
 
 	protected Object fixtureResult;
@@ -26,7 +26,6 @@ public class AbstractTestCase {
 			throw new Exception("Test failed in fixture phase", runResult.getThrowable());
 		}
 		fixtureResult = runResult.getResult();
-		
 	}
 
 }

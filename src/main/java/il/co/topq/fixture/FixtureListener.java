@@ -17,7 +17,7 @@ import org.testng.ITestContext;
  * @author Itai Agmon
  *
  */
-public class FixtureMethodInterceptor implements IMethodInterceptor, ISuiteListener {
+public class FixtureListener implements IMethodInterceptor, ISuiteListener {
 
 	/**
 	 * Get the list of method from TestNG and publish them to the Fixture Manager.
