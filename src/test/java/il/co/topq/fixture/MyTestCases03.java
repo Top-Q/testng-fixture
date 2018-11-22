@@ -3,6 +3,7 @@ package il.co.topq.fixture;
 import org.testng.annotations.Test;
 
 import il.co.topq.fixture.WithFixture;
+import il.co.topq.fixture.fixtures.OneSecondFixture;
 
 public class MyTestCases03  extends AbstractTestCase {
 	

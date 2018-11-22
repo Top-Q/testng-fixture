@@ -1,4 +1,4 @@
-package il.co.topq.fixture;
+package il.co.topq.fixture.fixtures;
 
 import il.co.topq.fixture.Fixture;
 import il.co.topq.fixture.FixtureException;
@@ -6,7 +6,7 @@ import il.co.topq.fixture.FixtureException;
 public class OneSecondFixture implements Fixture {
 
 	@Override
-	public void perform(String... params) throws FixtureException {
+	public Object setup(String... params) throws FixtureException {
 		System.out.println("Starting....");
 		try {
 			Thread.sleep(1000);
@@ -17,6 +17,25 @@ public class OneSecondFixture implements Fixture {
 		} else {
 			System.out.println("Finished running fixture without parameters ");
 		}
+		return null;
 	}
+
+	@Override
+	public void teardown() {
+		System.out.println("Starting successful teardown");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			
+		}
+		System.out.println("ending successful teardown");
+	}
+
+	@Override
+	public void failedTeardown() {
+		System.out.println("In failed teardown");
+	}
+	
+	
 
 }

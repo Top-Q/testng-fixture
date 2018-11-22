@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 import org.testng.IMethodInstance;
 import org.testng.IMethodInterceptor;
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 
 /**
@@ -15,7 +17,7 @@ import org.testng.ITestContext;
  * @author Itai Agmon
  *
  */
-public class FixtureMethodInterceptor implements IMethodInterceptor {
+public class FixtureMethodInterceptor implements IMethodInterceptor, ISuiteListener {
 
 	/**
 	 * Get the list of method from TestNG and publish them to the Fixture Manager.
@@ -32,5 +34,15 @@ public class FixtureMethodInterceptor implements IMethodInterceptor {
 		return methods;
 
 	}
+
+	@Override
+	public void onFinish(ISuite suite) {
+		FixtureManager.getInstance().startFixtureTeardownRun();
+	}
+
+	@Override
+	public void onStart(ISuite suite) {
+	}
+
 
 }

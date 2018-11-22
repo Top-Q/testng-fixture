@@ -12,17 +12,20 @@ import il.co.topq.fixture.FixtureManager.FixtureRunResult;
 @Listeners(FixtureMethodInterceptor.class)
 public class AbstractTestCase {
 
+	protected Object fixtureResult;
+	
 	@BeforeMethod
 	public void setup(Method method) throws Exception {
-		FixtureManager.getInstance().startFixtureRuns();
-		FixtureManager.getInstance().waitForAllFixtureRunsToEnd();
+		FixtureManager.getInstance().startFixtureSetupRuns();
+		FixtureManager.getInstance().waitForAllFixtureSetupRunsToEnd();
 		if (!FixtureManager.getInstance().isMethodHasFixture(method)) {
 			return;
 		}
-		FixtureRunResult result = FixtureManager.getInstance().getFixtureRunResult(method);
-		if (!result.isStatus()) {
-			throw new Exception("Test failed in fixture phase", result.getThrowable());
+		FixtureRunResult runResult = FixtureManager.getInstance().getFixtureRunResult(method);
+		if (!runResult.isStatus()) {
+			throw new Exception("Test failed in fixture phase", runResult.getThrowable());
 		}
+		fixtureResult = runResult.getResult();
 		
 	}
 

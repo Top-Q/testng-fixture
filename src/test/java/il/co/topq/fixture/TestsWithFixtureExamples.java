@@ -3,6 +3,10 @@ package il.co.topq.fixture;
 import org.testng.annotations.Test;
 
 import il.co.topq.fixture.WithFixture;
+import il.co.topq.fixture.fixtures.FaliedFixture;
+import il.co.topq.fixture.fixtures.OneSecondFixture;
+import il.co.topq.fixture.fixtures.FixtureWithResult;
+import il.co.topq.fixture.fixtures.MyFixtureResult;
 
 public class TestsWithFixtureExamples extends AbstractTestCase {
 
@@ -41,6 +45,12 @@ public class TestsWithFixtureExamples extends AbstractTestCase {
 	@WithFixture(FaliedFixture.class)
 	public void test01_04() {
 
+	}
+	
+	@Test
+	@WithFixture(FixtureWithResult.class)
+	public void testFixtureWithResult() {
+		System.out.println(((MyFixtureResult)fixtureResult).getMessage());
 	}
 
 }

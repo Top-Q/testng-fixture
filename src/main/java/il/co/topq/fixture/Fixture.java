@@ -2,6 +2,10 @@ package il.co.topq.fixture;
 
 public interface Fixture {
 
-	public void perform(String... params) throws FixtureException;
+	Object setup(String... params) throws FixtureException;
+	
+	void teardown();
+	
+	void failedTeardown();
 
 }
